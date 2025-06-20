@@ -6,6 +6,20 @@ Firmware source for the Raspberry Pi Debug Probe SWD/UART accessory. Can also be
 
 [Raspberry Pi Pico product page](https://www.raspberrypi.com/products/raspberry-pi-pico/)
 
+# Debugprobe for Seeed Xiao
+The xiao branch of this fork ports the Debugprobe firmware to Seeed Xiao board. V2.2.2 (master 20250619)  
+Differences:  
+because the xiao doesn't break out GP4 and GP5, the UART settings are moved to GP0 and GP1:
+```c++
+#define PROBE_UART_TX 0
+#define PROBE_UART_RX 1
+#define PROBE_UART_INTERFACE uart0
+```
+
+the board is set to XIAO
+```cmake
+set(PICO_BOARD seeed_xiao_rp2040 CACHE STRING "Board type")
+```
 
 # Documentation
 
