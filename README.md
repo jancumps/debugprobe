@@ -19,6 +19,13 @@ because the xiao doesn't break out GP4 and GP5, the UART settings are moved to G
 the board is set to XIAO
 ```cmake
 set(PICO_BOARD seeed_xiao_rp2040 CACHE STRING "Board type")
+
+# ...
+
+    elseif (PICO_BOARD STREQUAL "seeed_xiao_rp2040")
+        set_target_properties(debugprobe PROPERTIES
+            OUTPUT_NAME "debugprobe_on_xiao"
+        )
 ```
 
 # Documentation
